@@ -1,6 +1,15 @@
 sw_avb_lc Change Log
 ====================
 
+6.0.2
+-----
+
+  * Changes to dependencies:
+
+    - sc_avb: 6.1.1alpha0 -> 6.1.2alpha0
+
+      + Various minor SRP compliance fixes
+
 6.0.1
 -----
 
