@@ -1,0 +1,12 @@
+#include "app_config.h"
+
+#if AVB_DEMO_ENABLE_TALKER
+#define AVB_1722_1_ENTITY_NAME_STRING 		"AVB Transport Stream Talker"
+#elif AVB_DEMO_ENABLE_LISTENER
+#define AVB_1722_1_ENTITY_NAME_STRING       "AVB Transport Stream Listener"
+#endif
+#define AVB_1722_1_FIRMWARE_VERSION_STRING 	"6.0.4rc0"
+#define AVB_1722_1_GROUP_NAME_STRING 		"XMOS AVB Group"
+#define AVB_1722_1_SERIAL_NUMBER_STRING 	"0"
+#define AVB_1722_1_VENDOR_NAME_STRING		"XMOS"
+#define AVB_1722_1_MODEL_NAME_STRING		"AVB-LC"
