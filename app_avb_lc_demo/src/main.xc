@@ -293,7 +293,12 @@ void application_task(client interface avb_interface avb, server interface avb_1
   timer button_tmr;
 
   p_mute_led_remote <: ~0;
-  p_chan_leds <: ~(1 << selected_chan);
+  if (AVB_NUM_SINKS > 0) {
+    p_chan_leds <: ~(1 << selected_chan);
+  }
+  else {
+    p_chan_leds <: ~(0);
+  }
   p_buttons :> button_val;
 
 #if AVB_DEMO_ENABLE_TALKER
@@ -326,6 +331,7 @@ void application_task(client interface avb_interface avb, server interface avb_1
   {
     select
     {
+#if (AVB_NUM_SINKS > 0)
       case buttons_active => p_buttons when pinsneq(button_val) :> unsigned new_button_val:
       {
         if ((button_val & CHAN_SEL) == CHAN_SEL && (new_button_val & CHAN_SEL) == 0)
@@ -389,6 +395,7 @@ void application_task(client interface avb_interface avb, server interface avb_1
         p_buttons :> button_val;
         break;
       }
+#endif
       case i_1722_1_entity.get_control_value(unsigned short control_index,
                                             unsigned short &values_length,
                                             unsigned char values[AEM_MAX_CONTROL_VALUES_LENGTH_BYTES]) -> unsigned char return_status:
