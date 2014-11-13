@@ -41,29 +41,18 @@ on tile[AVB_I2C_TILE]: struct r_i2c r_i2c = { PORT_I2C_SCL, PORT_I2C_SDA };
 on tile[0]: out port p_fs = PORT_SYNC_OUT;
 on tile[0]: in port p_ts_clk = PORT_SDATA_OUT2;
 
-#if AVB_DEMO_ENABLE_TALKER
-on tile[0]: in port p_ts_valid = PORT_SDATA_OUT1;
-on tile[0]: in buffered port:4 p_ts_sync = PORT_SDATA_OUT3;
-on tile[0]: in buffered port:32 p_ts_data = XS1_PORT_8B;
-media_input_fifo_data_t ififo_data[AVB_NUM_MEDIA_INPUTS];
-media_input_fifo_t ififos[AVB_NUM_MEDIA_INPUTS];
-
-#elif AVB_DEMO_ENABLE_LISTENER
 on tile[0]: out port p_ts_valid = PORT_SDATA_OUT1;
 on tile[0]: out buffered port:4 p_ts_sync = PORT_SDATA_OUT3;
 on tile[0]: out buffered port:32 p_ts_data = XS1_PORT_8B;
 media_output_fifo_data_t ofifo_data[AVB_NUM_MEDIA_OUTPUTS];
 media_output_fifo_t ofifos[AVB_NUM_MEDIA_OUTPUTS];
-#endif
 on tile[0]: clock clk_ts = XS1_CLKBLK_1;
 
 [[combinable]] void application_task(client interface avb_interface avb, server interface avb_1722_1_control_callbacks i_1722_1_callbacks);
 
 enum mac_rx_chans {
   MAC_RX_TO_MEDIA_CLOCK = 0,
-#if AVB_DEMO_ENABLE_LISTENER
   MAC_RX_TO_LISTENER,
-#endif
   MAC_RX_TO_SRP,
   MAC_RX_TO_1722_1,
   NUM_MAC_RX_CHANS
@@ -71,9 +60,6 @@ enum mac_rx_chans {
 
 enum mac_tx_chans {
   MAC_TX_TO_MEDIA_CLOCK = 0,
-#if AVB_DEMO_ENABLE_TALKER
-  MAC_TX_TO_TALKER,
-#endif
   MAC_TX_TO_SRP,
   MAC_TX_TO_1722_1,
   MAC_TX_TO_AVB_MANAGER,
@@ -89,11 +75,7 @@ enum avb_manager_chans {
 
 enum ptp_chans {
   PTP_TO_AVB_MANAGER = 0,
-#if AVB_DEMO_ENABLE_TALKER
-  PTP_TO_TALKER,
-#elif AVB_DEMO_ENABLE_LISTENER
   PTP_TO_LISTENER,
-#endif
   PTP_TO_1722_1,
   NUM_PTP_CHANS
 };
@@ -108,19 +90,9 @@ int main(void)
   chan c_ptp[NUM_PTP_CHANS];
 
   // AVB unit control
-#if AVB_DEMO_ENABLE_TALKER
-  chan c_talker_ctl[AVB_NUM_TALKER_UNITS];
-#else
   #define c_talker_ctl null
-#endif
-
-#if AVB_DEMO_ENABLE_LISTENER
   chan c_listener_ctl[AVB_NUM_LISTENER_UNITS];
   chan c_buf_ctl[AVB_NUM_LISTENER_UNITS];
-#else
-  #define c_listener_ctl null
-  #define c_buf_ctl null
-#endif
 
   // Media control
   chan c_media_ctl[AVB_NUM_MEDIA_UNITS];
@@ -141,29 +113,16 @@ int main(void)
 
     on tile[0]:
     {
-#if AVB_DEMO_ENABLE_TALKER
-      init_media_input_fifos(ififos, ififo_data, AVB_NUM_MEDIA_INPUTS);
-      media_ctl_register(c_media_ctl[0], 1, ififos, 0, null, 0);
-      tsi_input(clk_ts, p_ts_data, p_ts_clk, p_ts_sync, p_ts_valid, ififo_data[0]);
-#elif AVB_DEMO_ENABLE_LISTENER
       init_media_output_fifos(ofifos, ofifo_data, AVB_NUM_MEDIA_OUTPUTS);
       media_ctl_register(c_media_ctl[0], 0, null, 1, ofifos, 0);
       tsi_output(clk_ts, p_ts_data, p_ts_clk, p_ts_sync, p_ts_valid, ofifo_data[0]);
-#endif
     }
 
-#if AVB_DEMO_ENABLE_TALKER
-    on tile[0]: avb_1722_talker(c_ptp[PTP_TO_TALKER],
-                                c_mac_tx[MAC_TX_TO_TALKER],
-                                c_talker_ctl[0],
-                                AVB_NUM_SOURCES);
-#elif AVB_DEMO_ENABLE_LISTENER
     on tile[0]: avb_1722_listener(c_mac_rx[MAC_RX_TO_LISTENER],
                                   null,
                                   c_ptp[PTP_TO_LISTENER],
                                   c_listener_ctl[0],
                                   AVB_NUM_SINKS);
-#endif
 
     on tile[1]: [[combine]] par {
       avb_manager(i_avb, NUM_AVB_MANAGER_CHANS,
