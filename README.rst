@@ -10,11 +10,13 @@ sw_avb_lc
 Key Features
 ============
 
-* 1722 Talker and Listener (simultaneous) support
+* 1722 61883-6 audio Talker and Listener (simultaneous) support
+* 1722 61883-4 MPEG-TS Talker or Listener support
 * 1722 MAAP support for Talkers
 * 802.1Q MRP, MVRP, SRP protocols
 * gPTP server and protocol
 * Audio interface for I2S
+* MPEG transport stream interface for DVB-SPI (TTL)
 * Media clock recovery and interface to PLL clock source
 * Support for 1722.1 AVDECC: ADP, AECP (AEM) and ACMP
 
