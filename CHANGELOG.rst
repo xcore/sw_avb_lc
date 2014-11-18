@@ -1,6 +1,11 @@
 sw_avb_lc Change Log
 ====================
 
+6.1.0
+-----
+  * Adds example applications for Transport Stream Talker and Listener
+  * Reintroduce auto media clock setting for built-in Controller in app_avb_lc_demo
+
 6.0.7
 -----
   * Firmware version submitted for final AVnu certification run
