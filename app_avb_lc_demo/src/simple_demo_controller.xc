@@ -138,6 +138,7 @@ avb_1722_1_acmp_status_t avb_listener_on_talker_connect(client interface avb_int
     avb.set_sink_map(sink_num, map, channels_per_stream);
     avb.set_sink_id(sink_num, stream_id);
     avb.set_sink_addr(sink_num, dest_addr, 6);
+    avb.set_sink_vlan(sink_num, vlan_id);
 
     avb.set_sink_state(sink_num, AVB_SINK_STATE_POTENTIAL);
     return ACMP_STATUS_SUCCESS;
