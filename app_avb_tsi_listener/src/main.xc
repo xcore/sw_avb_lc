@@ -20,7 +20,6 @@
 #include "avb_srp.h"
 #include "aem_descriptor_types.h"
 #include "tsi_output.h"
-#include "tsi_input.h"
 
 on tile[0]: otp_ports_t otp_ports0 = OTP_PORTS_INITIALIZER;
 avb_ethernet_ports_t avb_ethernet_ports =
@@ -37,16 +36,15 @@ on tile[1]: in port p_buttons = PORT_BUTTONS;
 
 on tile[AVB_I2C_TILE]: struct r_i2c r_i2c = { PORT_I2C_SCL, PORT_I2C_SDA };
 
-//***** AVB TS-SPI resources ****
-on tile[0]: out port p_fs = PORT_SYNC_OUT;
-on tile[0]: in port p_ts_clk = PORT_SDATA_OUT2;
-
-on tile[0]: out port p_ts_valid = PORT_SDATA_OUT1;
-on tile[0]: out buffered port:4 p_ts_sync = PORT_SDATA_OUT3;
+//***** Transport Stream SPI output resources ****
+on tile[0]: in port p_ts_clk = XS1_PORT_1I;
+on tile[0]: out port p_ts_valid = XS1_PORT_1H;
+on tile[0]: out buffered port:4 p_ts_sync = XS1_PORT_1J;
 on tile[0]: out buffered port:32 p_ts_data = XS1_PORT_8B;
+on tile[0]: clock clk_ts = XS1_CLKBLK_1;
+
 media_output_fifo_data_t ofifo_data[AVB_NUM_MEDIA_OUTPUTS];
 media_output_fifo_t ofifos[AVB_NUM_MEDIA_OUTPUTS];
-on tile[0]: clock clk_ts = XS1_CLKBLK_1;
 
 [[combinable]] void application_task(client interface avb_interface avb, server interface avb_1722_1_control_callbacks i_1722_1_callbacks);
 
@@ -92,7 +90,6 @@ int main(void)
   // AVB unit control
   #define c_talker_ctl null
   chan c_listener_ctl[AVB_NUM_LISTENER_UNITS];
-  chan c_buf_ctl[AVB_NUM_LISTENER_UNITS];
 
   // Media control
   chan c_media_ctl[AVB_NUM_MEDIA_UNITS];

@@ -2,7 +2,7 @@
 #define __avb_conf_h__
 
 #include "app_config.h"
-
+#include "avb_1722_def.h"
 /* Some of the configuration depends on the app_config.h file included above */
 
 /******** ETHERNET MAC CONFIGURATION PARAMETERS *************************************************/
@@ -15,7 +15,7 @@
 #define ETHERNET_TX_HP_QUEUE 1
 #define MAX_ETHERNET_CLIENTS   4
 
-#define ETHERNET_MAX_TX_HP_PACKET_SIZE (100 + AVB_DEMO_NUM_CHANNELS * 24)
+#define ETHERNET_MAX_TX_HP_PACKET_SIZE (AVB_ETHERNET_HDR_SIZE + AVB_TP_HDR_SIZE + AVB_CIP_HDR_SIZE + 192*4 + 4)
 #define ETHERNET_MAX_TX_LP_PACKET_SIZE (600)
 
 #define MII_RX_BUFSIZE_HIGH_PRIORITY (1100 + (3*(ETHERNET_MAX_TX_HP_PACKET_SIZE)))
@@ -76,14 +76,14 @@
 #endif
 
 /** The maximum number of channels permitted per 1722 Talker stream */
-#define AVB_MAX_CHANNELS_PER_TALKER_STREAM AVB_DEMO_NUM_CHANNELS
+#define AVB_MAX_CHANNELS_PER_TALKER_STREAM 1
 /** The maximum number of channels permitted per 1722 Listener stream */
-#define AVB_MAX_CHANNELS_PER_LISTENER_STREAM AVB_DEMO_NUM_CHANNELS
+#define AVB_MAX_CHANNELS_PER_LISTENER_STREAM 1
 
 /** Enable combination of the media clock server and PTP server in a single core */
 #define COMBINE_MEDIA_CLOCK_AND_PTP 1
 
-/** Use 61883-4 audio format for 1722 streams */
+/** Use 61883-4 MPEG-TS format for 1722 streams */
 #define AVB_1722_FORMAT_61883_4 1
 
 /** The number of components in the endpoint that will register and initialize media FIFOs
@@ -124,7 +124,7 @@ enum aem_control_indices {
 };
 
 /** Enable 1722.1 Controller functionality on the entity. */
-#define AVB_1722_1_CONTROLLER_ENABLED 0
+#define AVB_1722_1_CONTROLLER_ENABLED 1
 
 
 /** Enable SRP auto-start and auto-stop a stream when Listeners come and go */
