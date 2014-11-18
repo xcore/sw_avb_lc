@@ -79,6 +79,7 @@ avb_1722_1_acmp_status_t avb_listener_on_talker_connect(client interface avb_int
                                                         unsigned short vlan_id,
                                                         const_guid_ref_t my_guid)
 {
+#if AVB_NUM_SINKS > 0
   // Ensure XMOS devices only connect when they are known entities to ensure correct synchronisation
   int do_connect = 0;
 
@@ -144,6 +145,10 @@ avb_1722_1_acmp_status_t avb_listener_on_talker_connect(client interface avb_int
 
   debug_printf("CONNECTING Listener : entity not found : "); print_guid_ln(talker_guid);
   return ACMP_STATUS_NOT_SUPPORTED;
+#else
+  __builtin_unreachable();
+  return ACMP_STATUS_LISTENER_UNKNOWN_ID;
+#endif
 }
 
 /* The controller has indicated to disconnect this listener sink from a talker stream */
