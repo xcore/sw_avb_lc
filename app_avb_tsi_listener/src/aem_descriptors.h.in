@@ -193,11 +193,8 @@ unsigned char desc_stream_input_0[] =
   U16(AEM_NO_STRING),                         /* 68-69 localized_description */
   U16(0),                                     /* 70-71 clock_domain_index */
   U16(AEM_STREAM_FLAGS_CLASS_A),              /* stream_flags */
-  0x00, 0xa0, 0x02, AVB_NUM_MEDIA_OUTPUTS/AVB_NUM_SINKS,    /* current_format */
-  0x40, // b[0], nb[1], reserved[2:]
-  0, // label_iec_60958_cnt
-  AVB_NUM_MEDIA_OUTPUTS/AVB_NUM_SINKS, // label_mbla_cnt
-  0, // label_midi_cnt[0:3], label_smptecnt[4:]
+  0, 0xC0, 0, 0,    /* current_format */
+  0, 0, 0, 0,
   U16(132),                                   /* formats_offset */
   U16(1),                                     /* number_of_formats */
   0, 0, 0, 0, 0, 0, 0, 0,                     /* backup_talker_guid[0] */
@@ -211,12 +208,8 @@ unsigned char desc_stream_input_0[] =
   U16(0),                                     /* avb_interface_id */
   U32(0),                                     /* buffer_length */
   /* 130-> formats */
-  /* 48 khz */
-  0x00, 0xa0, 0x02, AVB_NUM_MEDIA_OUTPUTS/AVB_NUM_SINKS,
-  0x40, // b[0], nb[1], reserved[2:]
-  0, // label_iec_60958_cnt
-  AVB_NUM_MEDIA_OUTPUTS/AVB_NUM_SINKS, // label_mbla_cnt
-  0 // label_midi_cnt[0:3], label_smptecnt[4:]
+  0, 0xC0, 0, 0,
+  0, 0, 0, 0
 };
 #endif
 
@@ -248,12 +241,8 @@ unsigned char desc_stream_output_0[] =
   U16(0),                                     /* avb_interface_id */
   U32(0),                                     /* buffer_length */
   /* 130-> formats */
-  /* 48 khz */
-  0x00, 0xa0, 0x02, AVB_NUM_MEDIA_INPUTS/AVB_NUM_SOURCES,
-  0x40, // b[0], nb[1], reserved[2:]
-  0, // label_iec_60958_cnt
-  AVB_NUM_MEDIA_INPUTS/AVB_NUM_SOURCES, // label_mbla_cnt
-  0 // label_midi_cnt[0:3], label_smptecnt[4:]
+  0, 0xC0, 0, 0,
+  0, 0, 0, 0
 };
 #endif
 
