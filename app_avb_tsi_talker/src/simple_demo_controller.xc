@@ -47,7 +47,7 @@ void avb_entity_on_new_entity_available(client interface avb_interface avb, cons
   if (AVB_DEMO_ENABLE_TALKER && AVB_1722_1_CONTROLLER_ENABLED)
   {
     if ((entity->vendor_id == XMOS_VENDOR_ID) &&
-       ((entity->listener_capabilities & AVB_1722_1_ADP_LISTENER_CAPABILITIES_AUDIO_SINK) == AVB_1722_1_ADP_LISTENER_CAPABILITIES_AUDIO_SINK) &&
+       ((entity->listener_capabilities & AVB_1722_1_ADP_LISTENER_CAPABILITIES_VIDEO_SINK) == AVB_1722_1_ADP_LISTENER_CAPABILITIES_VIDEO_SINK) &&
        (entity->listener_stream_sinks >= 1))
     {
       // Ensure that the listener knows our GUID
