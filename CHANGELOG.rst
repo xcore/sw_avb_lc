@@ -6,6 +6,12 @@ sw_avb_lc Change Log
   * Adds example applications for Transport Stream Talker and Listener
   * Reintroduce auto media clock setting for built-in Controller in app_avb_lc_demo
 
+  * Changes to dependencies:
+
+    - sc_avb: 6.3.1beta0 -> 6.4.0rc0
+
+      + Adds support for MPEG-2 Transport Stream SPI interfaces and 61883-4 AVTP
+
 6.0.7
 -----
   * Firmware version submitted for final AVnu certification run
