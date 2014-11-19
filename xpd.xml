@@ -3,32 +3,86 @@
     <components>
         <component description = "A simple 1722.1 example endpoint application" type = "demoCode" scope = "Example" path = "app_avb_lc_demo" local = "false" id = "app_avb_lc_demo" name = "Simple AVB Endpoint Demo">
             <board>XR-AVB-LC-BRD</board>
-            <componentDependency repo = "git://github.com/xcore/sc_ethernet.git" version = "2.3.3">module_ethernet_smi</componentDependency>
-            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.3.1">module_avb</componentDependency>
-            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.3.1">module_avb_util</componentDependency>
-            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.3.1">module_avb_flash</componentDependency>
-            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.3.1">module_avb_srp</componentDependency>
-            <componentDependency repo = "git://github.com/xcore/sc_i2c" version = "2.4.0">module_i2c_simple</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_srp</componentDependency>
             <componentDependency repo = "git://github.com/xcore/sc_ethernet.git" version = "2.3.3">module_ethernet</componentDependency>
-            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.3.1">module_avb_1722</componentDependency>
-            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.3.1">module_avb_1722_1</componentDependency>
-            <componentDependency repo = "git://github.com/xcore/sc_ethernet.git" version = "2.3.3">module_ethernet_board_support</componentDependency>
-            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.3.1">module_avb_media_clock</componentDependency>
-            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.3.1">module_avb_audio</componentDependency>
-            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.3.1">module_avb_1722_maap</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_util</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_gptp</componentDependency>
             <componentDependency repo = "git://github.com/xcore/sc_slicekit_support.git" version = "1.0.4">module_slicekit_support</componentDependency>
-            <componentDependency repo = "git://github.com/xcore/sc_util" version = "1.0.4">module_logging</componentDependency>
             <componentDependency repo = "git://github.com/xcore/sc_otp" version = "1.0.0">module_otp_board_info</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_i2c" version = "2.4.0">module_i2c_simple</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_media_clock</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_1722_maap</componentDependency>
             <componentDependency repo = "git://github.com/xcore/sc_util" version = "1.0.4">module_logging</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_1722_1</componentDependency>
             <componentDependency repo = "git://github.com/xcore/sc_util" version = "1.0.4">module_locks</componentDependency>
-            <componentDependency repo = "git://github.com/xcore/sc_ethernet.git" version = "2.3.3">module_ethernet</componentDependency>
-            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.3.1">module_gptp</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_util</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_1722</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_util" version = "1.0.4">module_logging</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_ethernet.git" version = "2.3.3">module_ethernet_smi</componentDependency>
             <componentDependency repo = "git://github.com/xcore/sc_util" version = "1.0.4">module_random</componentDependency>
-            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.3.1">module_avb_util</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_audio</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_ethernet.git" version = "2.3.3">module_ethernet</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_flash</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_ethernet.git" version = "2.3.3">module_ethernet_board_support</componentDependency>
             <keyword>avb</keyword>
             <keyword>simple</keyword>
             <keyword>1722.1</keyword>
             <keyword>example</keyword>
+        </component>
+        <component description = "AVB transport stream Listener example" type = "demoCode" scope = "Example" path = "app_avb_tsi_listener" local = "false" id = "app_avb_tsi_listener" name = "AVB Transport Stream Listener">
+            <board>XR-AVB-LC-BRD</board>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_gptp</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_util" version = "1.0.4">module_logging</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_util" version = "1.0.4">module_random</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_ethernet.git" version = "2.3.3">module_ethernet_board_support</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_util</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_otp" version = "1.0.0">module_otp_board_info</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_slicekit_support.git" version = "1.0.4">module_slicekit_support</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_ethernet.git" version = "2.3.3">module_ethernet_smi</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_1722_maap</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_util" version = "1.0.4">module_logging</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_1722_1</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_media_clock</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_util" version = "1.0.4">module_locks</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_srp</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_1722</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_i2c" version = "2.4.0">module_i2c_simple</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_video</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_util</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_ethernet.git" version = "2.3.3">module_ethernet</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_flash</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_ethernet.git" version = "2.3.3">module_ethernet</componentDependency>
+            <keyword>avb</keyword>
+            <keyword>transport stream</keyword>
+        </component>
+        <component description = "AVB transport stream talker example" type = "demoCode" scope = "Example" path = "app_avb_tsi_talker" local = "false" id = "app_avb_tsi_talker" name = "AVB Transport Stream Talker">
+            <board>XR-AVB-LC-BRD</board>
+            <componentDependency repo = "git://github.com/xcore/sc_ethernet.git" version = "2.3.3">module_ethernet</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_i2c" version = "2.4.0">module_i2c_simple</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_ethernet.git" version = "2.3.3">module_ethernet_smi</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_video</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_util</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_otp" version = "1.0.0">module_otp_board_info</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_srp</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_util" version = "1.0.4">module_random</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_slicekit_support.git" version = "1.0.4">module_slicekit_support</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_1722</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_1722_maap</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_ethernet.git" version = "2.3.3">module_ethernet_board_support</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_util" version = "1.0.4">module_locks</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_gptp</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_util" version = "1.0.4">module_logging</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_media_clock</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_flash</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_1722_1</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_ethernet.git" version = "2.3.3">module_ethernet</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_util" version = "1.0.4">module_logging</componentDependency>
+            <componentDependency repo = "git://github.com/xcore/sc_avb.git" version = "6.4.0">module_avb_util</componentDependency>
+            <keyword>avb</keyword>
+            <keyword>transport stream</keyword>
         </component>
     </components>
     <dependency repo = "sc_i2c">
@@ -39,9 +93,9 @@
     </dependency>
     <dependency repo = "sc_avb">
         <gitbranch>master</gitbranch>
-        <githash>ef63831fb5568b3c7dabfc592d87a95e777dfd6d</githash>
+        <githash>4524ac72f752649d1e69b236480359e946d4e4f1</githash>
         <uri>https://github.com/xcore/sc_avb.git</uri>
-        <version>6.3.1beta0</version>
+        <version>6.4.0rc0</version>
     </dependency>
     <dependency repo = "sc_util">
         <gitbranch>master</gitbranch>
@@ -56,9 +110,9 @@
     </dependency>
     <dependency repo = "sc_ethernet">
         <gitbranch>master</gitbranch>
-        <githash>4927ea8fef066853834bea5439306184584b9550</githash>
+        <githash>f3c3dd14142d063f3f093f27cbf42bf01a92d008</githash>
         <uri>https://github.com/xcore/sc_ethernet.git</uri>
-        <version>2.3.3beta0</version>
+        <version>2.3.3rc0</version>
     </dependency>
     <description>AVB-LC specific application software</description>
     <docdir>doc</docdir>
@@ -78,7 +132,8 @@
     <release parenthash = "e728c9b9d0339e6586b1d8622a4695dbe6227891" version = "6.0.4rc0" githash = "051e7b0b0f1feee34905ddcae5d0d4da1c334d3b"></release>
     <release parenthash = "0137e61fb30cd4f1cdf71f35c682186f45892e68" version = "6.0.5beta0" githash = "d4b36020fde9d35f0f2c5a925cd218d1f561d6db"></release>
     <release parenthash = "f463b167709284fb588d3d144556be7d329a6935" version = "6.0.6beta0" githash = "ff36b0afb81fcd3dbe02b465b38b53241d1cbc0c"></release>
-    <release parenthash = "010e19627d4d5dc02e31e3cb8980f7157a6339e3" version = "6.0.7beta0"></release>
+    <release parenthash = "010e19627d4d5dc02e31e3cb8980f7157a6339e3" version = "6.0.7beta0" githash = "2719abc689732cb48c87e95fb2eb61bce5911cf1"></release>
+    <release parenthash = "ac6563cfd30ab85085c111f33ead1cffe7dc2e23" version = "6.1.0rc0"></release>
     <subpartnumber>XR-000008-SW</subpartnumber>
     <vendor>XMOS</vendor>
     <version_defines>
