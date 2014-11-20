@@ -5,6 +5,12 @@ sw_avb_lc Change Log
 -----
   * Documentation update to work around Latex bug that prevents compilation of PDF
 
+  * Changes to dependencies:
+
+    - sc_avb: 6.4.0rc0 -> 6.4.1rc0
+
+      + Documentation tidy-up
+
 6.1.0
 -----
   * Adds example applications for Transport Stream Talker and Listener
