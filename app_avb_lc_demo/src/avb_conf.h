@@ -37,7 +37,7 @@
 /** The total number of AVB sources (streams that are to be transmitted). */
 #define AVB_NUM_SOURCES 1
 /** The total number or Talker components (typically the number of
-  * tasks running the  :c:func:`avb_1722_talker` function). */
+  * tasks running the  avb_1722_talker() function). */
 #define AVB_NUM_TALKER_UNITS 1
 /** The total number of media inputs (typically number of I2S input channels). */
 #define AVB_NUM_MEDIA_INPUTS AVB_DEMO_NUM_CHANNELS
@@ -59,7 +59,7 @@
 /** The total number of AVB sinks (incoming streams that can be listened to) */
 #define AVB_NUM_SINKS 1
 /** The total number or listener components
-  * (typically the number of tasks running the  :c:func:`avb_1722_listener` function) */
+  * (typically the number of tasks running the avb_1722_listener() function) */
 #define AVB_NUM_LISTENER_UNITS 1
 /** The total number of media outputs (typically the number of I2S output channels). */
 #define AVB_NUM_MEDIA_OUTPUTS AVB_DEMO_NUM_CHANNELS

@@ -88,9 +88,7 @@ Component tasks and functions
 -----------------------------
 
 The following functions provide components that can be combined in the
-top-level main. For details on the Ethernet component, see
-the `Ethernet Component Guide
-<http://github.xcore.com/sc_ethernet/index.html>`_.
+top-level main.
 
 Core components
 ~~~~~~~~~~~~~~~
@@ -148,6 +146,14 @@ The following functions implement AVB audio components:
 
 .. doxygenfunction:: media_output_fifo_to_xc_channel_split_lr
 
+Video components
+~~~~~~~~~~~~~~~~
+
+The following functions implement AVB video components:
+
+.. doxygenfunction:: tsi_output
+
+.. doxygenfunction:: tsi_input
 
 .. _sec_avb_api:
 
