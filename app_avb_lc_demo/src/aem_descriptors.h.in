@@ -64,7 +64,7 @@ unsigned char desc_configuration_0[] =
   U16(AEM_AVB_INTERFACE_TYPE),
   U16(1),
   U16(AEM_CLOCK_SOURCE_TYPE),
-  U16(1),
+  U16(2),
   U16(AEM_LOCALE_TYPE),
   U16(1),
   U16(AEM_MEMORY_OBJECT_TYPE),
